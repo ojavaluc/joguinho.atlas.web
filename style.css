@@ -1,0 +1,169 @@
+/* Cor de fundo com gradiente para remeter à natureza e ao meio ambiente */
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #1e88e5, #66bb6a); /* Gradiente azul e verde vibrante */
+}
+
+/* Container do jogo centralizado, com bordas arredondadas e sombra suave */
+.game-container {
+    text-align: center;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
+    width: 70vw;
+    max-width: 600px;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out; /* Animação para suavizar o movimento */
+    overflow: hidden; /* Para evitar que os elementos saiam do contêiner */
+}
+
+.game-container:hover {
+    transform: scale(1.05); /* Aumentar um pouco o tamanho ao passar o mouse */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
+}
+
+/* Título do jogo com um toque mais moderno */
+h1 {
+    font-size: 36px;
+    color: #388e3c;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra mais forte no texto */
+    letter-spacing: 1px; /* Aumentar o espaçamento das letras */
+}
+
+/* Estilizando a área da pergunta */
+#question-container {
+    margin: 30px 0;
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+}
+
+/* Botões com bordas arredondadas e efeitos de hover */
+button {
+    padding: 16px 32px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 12px;
+    width: 220px;
+    border-radius: 50px;
+    border: 2px solid #388e3c; /* Cor verde mais forte */
+    background-color: #ffffff;
+    color: #388e3c;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #388e3c; /* Fundo verde ao passar o mouse */
+    color: white;
+    transform: translateY(-4px); /* Levantar um pouco o botão */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra do botão */
+}
+
+/* Feedback de resposta correta/errada */
+#feedback {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    transition: opacity 0.5s ease;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Estilo do feedback correto */
+#feedback.correct {
+    color: #2e7d32; /* Verde mais intenso para acerto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo do feedback errado */
+#feedback.incorrect {
+    color: #d32f2f; /* Vermelho para erro */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Exibição da pontuação */
+#score {
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #388e3c;
+}
+
+/* Estilos e animação da bola */
+@keyframes estourarBola {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+#bola {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: #ffeb3b; /* Cor da bola (amarelo vibrante) */
+    border-radius: 50%;
+    display: none;
+    animation: estourarBola 0.5s ease-out;
+}
+
+/* Animar a bola ao acerto */
+.acerto {
+    display: block;
+}
+
+/* Animar a bola ao erro */
+.erro {
+    display: block;
+    animation: estourarBola 0.5s ease-out;
+}
+
+/* Efeitos de transição de opacidade para feedback */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Estilo adicional para o botão de reiniciar (com mais destaque) */
+button#restart-button {
+    background-color: #ff7043; /* Cor laranja para reiniciar */
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button#restart-button:hover {
+    background-color: #ff5722; /* Laranja mais intenso ao passar o mouse */
+    transform: translateY(-4px);
+}
